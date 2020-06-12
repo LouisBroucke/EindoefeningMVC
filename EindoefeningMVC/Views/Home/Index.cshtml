@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3 class="display-4">Welkom op onze website @ViewBag.Voornaam!</h3>
+<div>
+    <a asp-action="Index" asp-controller="Brochure" class="btn btn-primary btn-lg">Brochures opvragen</a>
+</div>
+<div>
+    <p>Ben jij @ViewBag.Voornaam niet? <a asp-action="CookiesWissen" asp-controller="Home">Log uit</a></p>
+</div>

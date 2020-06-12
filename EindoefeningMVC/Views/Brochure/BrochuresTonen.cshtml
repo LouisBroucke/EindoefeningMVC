@@ -1,0 +1,10 @@
+﻿@model List<Bestemming>
+@if (Model != null)
+{
+    <ul>
+        @foreach (var bestemming in Model)
+        {
+            <li>@bestemming.Naam</li>
+        }
+    </ul>
+}

@@ -1,0 +1,9 @@
+﻿@model Bestemming
+<div class="text-center">
+    <p>Tik jouw reisbestemming</p>
+    <form asp-action="BrochureToevoegen" asp-controller="Brochure" method="post">
+        <input asp-for="Naam" />
+        <input type="submit" value="Toevoegen" />
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
