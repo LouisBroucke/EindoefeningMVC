@@ -19,6 +19,7 @@ namespace EindoefeningMVC.Models
 
         [Required(ErrorMessage = "Postcode is een verplicht veld")]
         [Range(1000, 9999, ErrorMessage ="Postcode moet tussen {1} en {2} liggen")]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="{0:#}")]
         public int Postcode { get; set; }
 
         [Required(ErrorMessage = "Gemeente is een verplicht veld")]

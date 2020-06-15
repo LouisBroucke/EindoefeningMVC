@@ -31,7 +31,8 @@ namespace EindoefeningMVC.Controllers
             {
                 _persoonService.Add(p);
                 Response.Cookies.Append("voornaam", p.Voornaam);
-                return RedirectToAction("Index", "Home");
+                ViewBag.voornaam = p.Voornaam;
+                return RedirectToAction("Index", "Brochure");
             }
             else
             {
