@@ -1,9 +1,18 @@
-﻿@{
+﻿@model Bestemming
+@{
     ViewData["Title"] = "Index";
 }
 
 <div class="text-center">
-    <h1>Brochures</h1>    
+    <h1>Brochures</h1>
 </div>
-<partial name="BrochureToevoegen" />
-<partial name="BrochuresTonen" />
+
+<div class="text-center">
+    <p>Tik jouw reisbestemming</p>
+    <form asp-action="BrochureToevoegen" asp-controller="Brochure" method="post">
+        <input asp-for="Naam" />
+        <input type="submit" value="Toevoegen" />
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
+<partial name="BrochuresTonen" model="@ViewBag.bestemmingen"/>

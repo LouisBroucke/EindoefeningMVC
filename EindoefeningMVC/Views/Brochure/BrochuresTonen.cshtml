@@ -1,10 +1,15 @@
 ﻿@model List<Bestemming>
-@if (Model != null)
+@if (Model.Count != 0)
 {
     <ul>
         @foreach (var bestemming in Model)
         {
-            <li>@bestemming.Naam</li>
+            <li>@bestemming.Naam 
+                <a asp-action="BrochureVerwijderen" asp-controller="Brochure" asp-route-id="@bestemming.ID">
+                    <img src="~/images/delete.png" alt="verwijderen"/>
+                </a>
+            </li>
         }
-    </ul>
+    </ul>   
+    <a asp-action="BrochuresAanvragen" asp-controller="Brochure" class="btn btn-primary btn-lg">Brochures Aanvragen</a>
 }

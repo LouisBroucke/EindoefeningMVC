@@ -19,15 +19,12 @@ namespace EindoefeningMVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Bestemming bestemming = new Bestemming();
+
+            ViewBag.bestemmingen = _bestemmingService.FindAll();
+
+            return View(bestemming);
         }   
-        
-        [HttpGet]
-        public IActionResult BrochureToevoegen()
-        {
-            Bestemming b = new Bestemming();
-            return View(b);
-        }
 
         [HttpPost]
         public IActionResult BrochureToevoegen(Bestemming b)
@@ -35,7 +32,7 @@ namespace EindoefeningMVC.Controllers
             if (this.ModelState.IsValid)
             {
                 _bestemmingService.Add(b);
-                return View("Index");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -43,16 +40,16 @@ namespace EindoefeningMVC.Controllers
             }
         }
 
-        public IActionResult BrochuresTonen()
+        public IActionResult BrochureVerwijderen(int id)
         {
-            if (_bestemmingService != null)
-            {
-                return View(_bestemmingService.FindAll());
-            }
-            else
-            {
-                return View("Index");
-            }        
+            _bestemmingService.Delete(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult BrochuresAanvragen()
+        {
+            Response.Cookies.Delete("voornaam");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -15,12 +15,19 @@ namespace EindoefeningMVC.Services
         {
             if (bestemmingen.Count == 0)
             {
+                b.ID = 0;
                 bestemmingen.Add(0, b);
             }
             else
             {
+                b.ID = bestemmingen.Keys.Max() + 1;
                 bestemmingen.Add(bestemmingen.Keys.Max() + 1, b);
             }
+        }
+
+        public void Delete(int id)
+        {
+            bestemmingen.Remove(id);
         }
 
         public List<Bestemming> FindAll()

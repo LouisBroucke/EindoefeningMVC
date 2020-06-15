@@ -8,6 +8,7 @@ namespace EindoefeningMVC.Models
 {
     public class Bestemming
     {
+        public int ID { get; set; }
         [Required(ErrorMessage ="Gelieve een bestemming in te geven")]
         public string Naam { get; set; }
     }
